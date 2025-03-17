@@ -6,7 +6,6 @@
     <title>Platypus of the day</title>
 
     <style>
-
         body {
             margin: 0;
             padding: 0;
@@ -26,42 +25,46 @@
     </style>
 </head>
 <body>
-
-
     <main>
         <h1>Platypus of the day!</h1>
 
-        <img src="images.jpg" alt="Platypus of the day">
-
-
-
+        <img src="" alt="" id="imgOfTheDay">
+        <p id="descriptionOfTheDay"></p>
     </main>
     
     <script>
-        async function list() {
-
-        const query = `
+        async function getRandomPlatpus() {
+            const query = `
             {
-            platypoded {
-                items {
-                id
-                description
-                imgUrl
+                platypus {
+                    items {
+                        id
+                        description
+                        imgUrl
+                    }
                 }
-            }
             }`;
+        
+            const endpoint = "/data-api/graphql";
+            const response = await fetch(endpoint, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ query: query })
+            });
+            const result = await response.json();            
+
+            const randomIndex = Math.floor(Math.random() * result.data.platypus.items.length);
+            const randomPlatypus = result.data.platypus.items[randomIndex];
+
+            const imgOfTheDay = document.getElementById("imgOfTheDay");
+            imgOfTheDay.src = randomPlatypus.imgUrl;
+
+            const descriptionOfTheDay = document.getElementById("descriptionOfTheDay");
+            descriptionOfTheDay.textContent = randomPlatypus.description;
             
-        const endpoint = "/data-api/graphql";
-        const response = await fetch(endpoint, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ query: query })
-        });
-        const result = await response.json();
-        console.table(result.data.people.items);
         }
 
-        list();
+        getRandomPlatpus();
     </script>
 </body>
 </html>
