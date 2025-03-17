@@ -21,6 +21,8 @@ Merk at i det du legg til ein database, må du òg ha ei package.json fil med ei
   
     ```
 
+Prosjektet [køyrer her](https://calm-tree-028872b10.6.azurestaticapps.net)
+
 
 
 
