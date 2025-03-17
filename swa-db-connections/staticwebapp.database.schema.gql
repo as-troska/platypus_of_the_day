@@ -1,0 +1,5 @@
+type Platypus @model {
+    id: ID
+    description: String
+    imgUrl: String
+}
