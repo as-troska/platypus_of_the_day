@@ -7,6 +7,7 @@ eg laga dette prosjektet.
 
 Det kan vere greit å sjå på schemaet mitt, som ligg i fila "swa-db-connections/staticwebapp.database.schema.gql" Du kan samanlikne dette med databasen min som du ser bilete av her:
 
+
 ![Screenshot frå Azure Cosmos DB](./data.png)
 
 
