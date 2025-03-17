@@ -37,6 +37,31 @@
 
     </main>
     
-    
+    <script>
+        async function list() {
+
+        const query = `
+            {
+            platypoded {
+                items {
+                id
+                description
+                imgUrl
+                }
+            }
+            }`;
+            
+        const endpoint = "/data-api/graphql";
+        const response = await fetch(endpoint, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ query: query })
+        });
+        const result = await response.json();
+        console.table(result.data.people.items);
+        }
+
+        list();
+    </script>
 </body>
 </html>
