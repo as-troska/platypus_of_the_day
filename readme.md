@@ -10,6 +10,17 @@ Det kan vere greit å sjå på schemaet mitt, som ligg i fila "swa-db-connection
 
 ![Screenshot frå Azure Cosmos DB](./data.png)
 
+Merk at i det du legg til ein database, må du òg ha ei package.json fil med eit minimalt bygg-script. Mitt ser slik ut:
+
+    ```json
+    {
+        "scripts": {
+            "build": "echo 'No build needed'"
+        }
+    }
+  
+    ```
+
 
 
 
